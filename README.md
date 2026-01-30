@@ -78,6 +78,10 @@ ADF: orquestração (schedule, parâmetros, retries, logs, alertas, integração
 
 Databricks: processamento (notebooks/jobs) e escrita das camadas Bronze/Silver/Gold (idealmente em Delta Lake)
 
+Evidências no Databricks:
+<img width="1902" height="986" alt="image" src="https://github.com/user-attachments/assets/1603b4b2-301c-4b92-b8d9-8138bd946542" />
+
+
 DevOps: versionamento do código, revisão (PR), CI/CD para promover mudanças entre DEV/HML/PRD.
 
 
