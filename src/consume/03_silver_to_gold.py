@@ -17,6 +17,10 @@ def latest_silver_file() -> Path:
 def main():
     silver_path = latest_silver_file()
     df = pd.read_parquet(silver_path)
+    # Remove linha de cabeçalho/metadata que pode vir como registro
+    df["d3n"] = df["d3n"].astype(str)
+    df = df[df["d3n"].str.lower() != "variável"]
+
 
     print(f"[INFO] Silver: {silver_path.name}")
     print(f"[INFO] Linhas: {len(df)} | Colunas: {len(df.columns)}")
