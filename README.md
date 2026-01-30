@@ -44,12 +44,12 @@ python -m pip install -r requirements.txt
 
 ```
 Executar camadas:
-
+```bash
 python src/ingest/01_ingest_sidra.py
 python src/transform/02_bronze_to_silver.py
 python src/consume/03_silver_to_gold.py
-
-Saídas geradas
+```
+## Saídas geradas
 
 Bronze: data/bronze/sidra_6579_<batch_id>.json
 
@@ -90,4 +90,10 @@ Evidências no Databricks:
 
 DevOps: versionamento do código, revisão (PR), CI/CD para promover mudanças entre DEV/HML/PRD.
 
+## Como seria em produção na Azure (ADF + Databricks)
 
+Azure Data Factory (ADF): orquestração (schedule, parâmetros, retries, logs, alertas, integração com Key Vault).
+
+Databricks: processamento (notebooks/jobs) e escrita Bronze/Silver/Gold (idealmente em Delta Lake).
+
+DevOps: versionamento, revisão via PR e CI/CD para promover mudanças entre DEV/HML/PRD.
