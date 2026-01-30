@@ -9,8 +9,9 @@ Este repositório implementa um pipeline de engenharia de dados com a arquitetur
 - API IBGE/SIDRA – Tabela **6579**
 - Endpoint: `https://apisidra.ibge.gov.br/values/t/6579/n3/all/p/all/v/all`
 
-<img width="1902" height="986" alt="image" src="/evidencias/databricks2.png" />
+
 ## Estrutura do projeto
+<img width="600" alt="image" src="/evidencias/databricks2.png" />
 src/
 ingest/
 01_ingest_sidra.py # Bronze: baixa e salva JSON bruto
