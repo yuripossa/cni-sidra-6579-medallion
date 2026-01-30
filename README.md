@@ -9,6 +9,7 @@ Este repositório implementa um pipeline de engenharia de dados com a arquitetur
 - API IBGE/SIDRA – Tabela **6579**
 - Endpoint: `https://apisidra.ibge.gov.br/values/t/6579/n3/all/p/all/v/all`
 
+<img width="1902" height="986" alt="image" src="https://github.com/yuripossa/cni-sidra-6579-medallion/evidencias/databricks2.png" />
 ## Estrutura do projeto
 src/
 ingest/
@@ -34,12 +35,13 @@ gold/ # Parquet analítico
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-
+```
 Instalar dependências:
 
+```bash
 python -m pip install -r requirements.txt
 
-
+```
 Executar camadas:
 
 python src/ingest/01_ingest_sidra.py
@@ -79,8 +81,11 @@ ADF: orquestração (schedule, parâmetros, retries, logs, alertas, integração
 Databricks: processamento (notebooks/jobs) e escrita das camadas Bronze/Silver/Gold (idealmente em Delta Lake)
 
 Evidências no Databricks:
+<img width="1902" height="986" alt="image" src="https://github.com/yuripossa/cni-sidra-6579-medallion/evidencias/databricks1.png" />
+<br>
+<img width="1902" height="986" alt="image" src="https://github.com/yuripossa/cni-sidra-6579-medallion/evidencias/notebooks_python.png" />
+<br>
 <img width="1902" height="986" alt="image" src="https://github.com/yuripossa/cni-sidra-6579-medallion/evidencias/armazenamento_dados.png" />
-
 
 DevOps: versionamento do código, revisão (PR), CI/CD para promover mudanças entre DEV/HML/PRD.
 
