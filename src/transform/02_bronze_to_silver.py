@@ -1,9 +1,25 @@
+import os
 import json
 from pathlib import Path
 import pandas as pd
 
-BRONZE_DIR = Path("data/bronze")
-SILVER_DIR = Path("data/silver")
+def get_project_root() -> Path:
+    env_root = os.getenv("PROJECT_ROOT")
+    if env_root:
+        return Path(env_root)
+    if "__file__" in globals():
+        return Path(__file__).resolve().parents[2]  # src/transform -> src -> root
+    # fallback: subir a partir do CWD buscando src/ + README.md
+    cwd = Path.cwd().resolve()
+    for c in [cwd] + list(cwd.parents):
+        if (c / "src").exists() and (c / "README.md").exists():
+            return c
+    return cwd
+
+PROJECT_ROOT = get_project_root()
+
+BRONZE_DIR = PROJECT_ROOT / "data" / "bronze"
+SILVER_DIR = PROJECT_ROOT / "data" / "silver"
 SILVER_DIR.mkdir(parents=True, exist_ok=True)
 
 def latest_bronze_file() -> Path:
